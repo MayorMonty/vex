@@ -7,7 +7,7 @@ export default class Load extends Component {
     content: {}
   };
 
-  async componentWillMount() {
+  async loadData() {
     let content = this.props.content;
     let keys = Object.keys(content);
 
@@ -27,6 +27,14 @@ export default class Load extends Component {
       loading: false,
       content: out
     });
+  }
+
+  componentWillMount() {
+    this.loadData();
+  }
+
+  componentWillReceiveProps() {
+    this.loadData();
   }
 
   render({ children }, { loading, error, content }) {
