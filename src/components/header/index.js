@@ -1,16 +1,16 @@
 import { h, Component } from "preact";
 import { Link } from "preact-router/match";
-import Theme from "../../Theme";
+import General from "../../context/General";
 import style from "./style";
 
 export default class Header extends Component {
   render() {
     return (
-      <Theme.Consumer>
-        {theme => (
+      <General.Consumer>
+        {({ theme }) => (
           <header class={style.header} style={{ backgroundColor: theme.red }} />
         )}
-      </Theme.Consumer>
+      </General.Consumer>
     );
   }
 }
