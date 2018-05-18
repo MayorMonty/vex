@@ -28,11 +28,13 @@ export default class Event extends Component {
         <Load content={this.loadData({ sku, division })}>
           {({ event, ranks }) => (
             <div>
-              <h3 class={style.header}>{event.name}</h3>
-              <SelectDivision
-                divisions={event.divisions}
-                set={div => this.setState({ division: div })}
-              />
+              <h3 class={style.header}>
+                <div>{event.name}</div>
+                <SelectDivision
+                  divisions={event.divisions}
+                  set={div => this.setState({ division: div })}
+                />
+              </h3>
               <Rankings
                 division={division ? division : event.divisions[0]}
                 sku={sku}
